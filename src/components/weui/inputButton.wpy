@@ -1,0 +1,23 @@
+<template>
+  <view class="weui-vcode-btn">
+    <slot></slot>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export const props = {}
+
+  export default class InputButton extends wepy.component {
+    props = props
+
+    components = {}
+    methods = {}
+
+    onLoad() {
+    }
+  }
+</script>
+
+<style type="less">
+</style>

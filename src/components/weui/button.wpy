@@ -1,0 +1,64 @@
+<template>
+  <button
+    class="{{'weui-btn' + (size === 'mini' ? ' mini-btn' : '')}}"
+    size="{{size}}"
+    type="{{type}}"
+    plain="{{plain}}"
+    disabled="{{disabled}}"
+    loading="{{loading}}"
+    form-type="{{formType}}"
+    open-type="{{openType}}"
+    hover-class="{{hoverClass}}"
+    hover-start-time="{{hoverStartTime}}"
+    hover-stay-time="{{hoverStayTime}}"
+  >
+    <slot></slot>
+  </button>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Group extends wepy.component {
+    props = {
+      size: {
+        default: 'default'
+      }, // 按钮的大小
+      type: {
+        default: 'default'
+      }, // 按钮的样式类型
+      plain: {
+        default: false
+      }, // 按钮是否镂空，背景色透明
+      disabled: {
+        default: false
+      }, // 是否禁用
+      loading: {
+        default: false
+      }, // 名称前是否带 loading 图标
+      formType: {
+        default: null
+      }, // 用于 <form/> 组件，点击分别会触发 submit/reset 事件
+      openType: {
+        default: null
+      }, // 有效值contact，打开客服会话 1.1.0
+      hoverClass: {
+        default: 'button-hover'
+      }, // button-hover 指定按钮按下去的样式类。当hover-class="none"时，没有点击态效果
+      hoverStartTime: {
+        default: 20
+      }, // 20 按住后多久出现点击态，单位毫秒
+      hoverStayTime: {
+        default: 70
+      } // 70 手指松开后点击态保留时间，单位毫秒
+    }
+
+    components = {}
+    methods = {}
+
+    onLoad() {
+    }
+  }
+</script>
+
+<style type="less">
+</style>

@@ -1,0 +1,107 @@
+<template>
+
+  <cellInput class="weui-cell_input" :title="title" :right="right">
+    <input
+      class="weui-input"
+      value="{{value}}"
+      type="{{type}}"
+      password="{{password}}"
+      placeholder="{{placeholder}}"
+      placeholderStyle="{{placeholderStyle}}"
+      placeholderClass="{{placeholderClass}}"
+      disabled="{{disabled}}"
+      maxlength="{{maxlength}}"
+      cursorSpacing="{{cursorSpacing}}"
+      autoFocus="{{autoFocus}}"
+      focus="{{focus}}"
+      confirmType="{{confirmType}}"
+      confirmHold="{{confirmHold}}"
+    />
+    <view slot="right">
+      <slot name="right"></slot>
+    </view>
+  </cellInput>
+
+</template>
+
+<script>
+
+  import wepy from 'wepy'
+
+  import CellInput from './cellInput'
+
+  export default class Group extends wepy.component {
+    components = {
+      cellInput: CellInput
+    }
+
+    props = {
+      title: {},
+      right: {},
+      // input props
+      value: { // 输入框的初始内容
+        type: String
+      },
+      type: {
+        type: String,
+        default: 'text'
+      }, // input的类型
+      password: {
+        type: Boolean,
+        default: false
+      }, // 是否是密码类型
+      placeholder: {
+        type: String,
+        default: ''
+      }, // 输入框为空时占位符
+      placeholderStyle: {
+        type: String,
+        default: ''
+      }, // 指定placeholder的样式
+      placeholderClass: {
+        type: String,
+        default: 'input-placeholder'
+      }, // 指定placeholder的样式类
+      disabled: {
+        type: Boolean,
+        default: false
+      }, // 是否禁用
+      maxlength: {
+        type: Number,
+        default: 140
+      }, // 最大输入长度，设置为 -1 的时候不限制最大长度
+      cursorSpacing: {
+        type: Number,
+        default: 0
+      }, // 指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离
+      autoFocus: {
+        type: Boolean,
+        default: false
+      }, // (即将废弃，请直接使用focus)自动聚焦，拉起键盘
+      focus: {
+        type: Boolean,
+        default: false
+      }, // 获取焦点
+      confirmType: {
+        type: String,
+        default: 'done'
+      }, // 设置键盘右下角按钮的文字 1.1.0
+      confirmHold: {
+        type: Boolean,
+        default: false
+      } // 点击键盘右下角按钮时是否保持键盘不收起 1.1.0
+//      bindinput: {
+//        default: null
+//      }, // 当键盘输入时，触发input事件，event.detail = {value: value}，处理函数可以直接 return 一个字符串，将替换输入框的内容。
+//      bindfocus: {
+//        default: null
+//      }, // 输入框聚焦时触发，event.detail = {value: value}
+//      bindblur: {
+//        default: null
+//      }, // 输入框失去焦点时触发，event.detail = {value: value}
+//      bindconfirm: {
+//        default: null
+//      } // 点击完成按钮时触发，event.detail = {value: value}
+    }
+  }
+</script>

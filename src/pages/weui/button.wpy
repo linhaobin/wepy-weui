@@ -1,0 +1,96 @@
+<template>
+  <view class="page">
+    <view class="page__hd">
+      <view class="page__title">Button</view>
+      <view class="page__desc">按钮，WeUI采用小程序原生的按钮为主体，加入一些间距的样式。</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+      <button1 type="primary">页面主操作 Normal</button1>
+      <button class="weui-btn" type="primary">页面主操作 Normal</button>
+
+
+      <button2 type="primary" disabled="true">页面主操作 Disabled</button2>
+      <button class="weui-btn" type="primary" disabled="true">页面主操作 Disabled</button>
+
+      <button3 type="default">页面次要操作 Normal</button3>
+      <button class="weui-btn" type="default">页面次要操作 Normal</button>
+
+      <button4 type="default" disabled="true">页面次要操作 Disabled</button4>
+      <button class="weui-btn" type="default" disabled="true">页面次要操作 Disabled</button>
+
+      <button5 type="warn">警告类操作 Normal</button5>
+      <button class="weui-btn" type="warn">警告类操作 Normal</button>
+
+      <button6 type="warn" disabled="true">警告类操作 Disabled</button6>
+      <button class="weui-btn" type="warn" disabled="true">警告类操作 Disabled</button>
+
+      <view class="button-sp-area">
+        <button7 type="primary" plain="true">按钮</button7>
+        <button class="weui-btn" type="primary" plain="true">按钮</button>
+
+        <button8 type="primary" disabled="true" plain="true">按钮</button8>
+        <button class="weui-btn" type="primary" disabled="true" plain="true">按钮</button>
+
+        <button9 type="default" plain="true">按钮</button9>
+        <button class="weui-btn" type="default" plain="true">按钮</button>
+
+        <button10 type="default" disabled="true" plain="true">按钮</button10>
+        <button class="weui-btn" type="default" disabled="true" plain="true">按钮</button>
+
+        <button11 type="primary" size="mini">按钮</button11>
+        <button class="weui-btn mini-btn" type="primary" size="mini">按钮</button>
+
+        <button12 type="default" size="mini">按钮</button12>
+        <button class="weui-btn mini-btn" type="default" size="mini">按钮</button>
+
+        <button13 type="warn" size="mini">按钮</button13>
+        <button class="weui-btn mini-btn" type="warn" size="mini">按钮</button>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  // components
+  import Button from '../../components/weui/button'
+
+  export default class WeuiButton extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Weui Button'
+    }
+
+    components = {
+      button1: Button,
+      button2: Button,
+      button3: Button,
+      button4: Button,
+      button5: Button,
+      button6: Button,
+      button7: Button,
+      button8: Button,
+      button9: Button,
+      button10: Button,
+      button11: Button,
+      button12: Button,
+      button13: Button
+    }
+
+    data = {}
+
+    onLoad() {
+    }
+  }
+</script>
+
+<style>
+  .button-sp-area {
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 60%;
+  }
+
+  .mini-btn {
+    margin-right: 5px;
+  }
+</style>

@@ -1,0 +1,38 @@
+<template>
+  <panel-a>
+    panel-a
+    <panel-b>
+      panel-b
+    </panel-b>
+  </panel-a>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Panel from '../components/panel'
+
+  export default class Test extends wepy.page {
+    components = {
+      'panel-a': Panel,
+      'panel-b': Panel
+    }
+  }
+</script>
+
+<!--<template>-->
+<!--<panel-1>-->
+<!--<panel-2></panel-2>-->
+<!--</panel-1>-->
+<!--</template>-->
+
+<!--<script>-->
+<!--import wepy from 'wepy'-->
+<!--import Panel from '../components/panel'-->
+
+<!--export default class Test extends wepy.page {-->
+<!--components = {-->
+<!--'panel-2': Panel,-->
+<!--'panel-1': Panel-->
+<!--}-->
+<!--}-->
+<!--</script>-->

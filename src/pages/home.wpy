@@ -1,0 +1,76 @@
+<template>
+  <view>
+    <group1 title="带说明的列表项">
+      <cell1 title="标题文字">说明文字</cell1>
+    </group1>
+
+    <group2>
+      <view slot="title">带图标、说明的列表项</view>
+      <cell2 title="标题文字" :icon="icon">说明文字</cell2>
+      <cell3 :icon="icon">
+        <view slot="title">标题文字</view>
+        <view>说明文字</view>
+      </cell3>
+    </group2>
+
+    <group3 title="带跳转的列表项">
+      <cell4 title="cell standard" link></cell4>
+      <cell5 title="cell standard" link></cell5>
+    </group3>
+
+    <group4 title="带说明、跳转的列表项">
+      <cell6 title="cell standard" link>说明文字</cell6>
+      <cell7 title="cell standard" link>说明文字</cell7>
+    </group4>
+
+    <group5 title="带图标、说明、跳转的列表项">
+      <cell8 title="cell standard" :icon="icon" link>说明文字</cell8>
+      <cell9 title="cell standard" :icon="icon" link>说明文字</cell9>
+    </group5>
+
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  // components
+  import Group from '../components/weui/group'
+  import Cell from '../components/weui/cell'
+  import base64 from '../images/base64'
+  // utils
+  //  import generateComponents from '../utils/generateComponents'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: 'hbin'
+    }
+
+    components = {
+      group1: Group,
+      group2: Group,
+      group3: Group,
+      group4: Group,
+      group5: Group,
+      cell1: Cell,
+      cell2: Cell,
+      cell3: Cell,
+      cell4: Cell,
+      cell5: Cell,
+      cell6: Cell,
+      cell7: Cell,
+      cell8: Cell,
+      cell9: Cell
+    }
+
+    data = {
+      icon: base64.icon20
+    }
+
+    onLoad() {
+    }
+  }
+</script>
+
+<style lang="less">
+
+</style>

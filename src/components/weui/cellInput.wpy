@@ -1,0 +1,33 @@
+<template>
+
+  <cell input :right="right">
+    <view slot="head" class="weui-label">{{title}}</view>
+    <block slot="body">
+      <slot></slot>
+    </block>
+    <block>
+      <slot name="right"></slot>
+    </block>
+  </cell>
+
+</template>
+
+<script>
+
+  import wepy from 'wepy'
+
+  import Cell from './cell'
+
+  export default class Group extends wepy.component {
+    components = {
+      cell: Cell
+    }
+
+    props = {
+      title: {},
+      right: {
+        type: String
+      }
+    }
+  }
+</script>

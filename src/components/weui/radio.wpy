@@ -1,0 +1,66 @@
+<template>
+  <radio-group @change="radioChange">
+    <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="{{item.value}}">
+      <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+
+      <view class="weui-cell__bd">{{item.label}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+      </view>
+    </label>
+  </radio-group>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Radio extends wepy.component {
+    props = {
+      value: {
+        twoWay: true
+      },
+      labelKey: {
+        type: String,
+        default: 'label'
+      },
+      valueKey: {
+        type: String,
+        default: 'value'
+      },
+      options: {}
+    }
+
+    components = {}
+
+    data = {
+      radioItems: []
+    }
+
+    methods = {
+      radioChange (e) {
+        console.log(e)
+
+        this.value = e.detail.value
+
+        this.methods.updateValue.call(this)
+      },
+      updateValue () {
+        this.radioItems.forEach((item) => {
+          item.checked = item.value === this.value
+        })
+      }
+    }
+
+    onLoad() {
+      this.radioItems = this.options.map((option) => {
+        return {
+          label: option[this.labelKey],
+          value: option[this.valueKey]
+        }
+      })
+      this.methods.updateValue.call(this)
+    }
+  }
+</script>
+
+<style type="less">
+</style>

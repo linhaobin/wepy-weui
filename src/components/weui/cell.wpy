@@ -1,0 +1,44 @@
+<template>
+  <view
+    class="{{'weui-cell' + (link ? ' weui-cell_access' : '') + (input ? ' weui-cell_input' : '') + (right ? ' weui-cell_vcode' : '') + (class ? ' ' + class : '')}}"
+    hover-class="{{link ? 'weui-cell_active' : ''}}"
+  >
+    <view class="weui-cell__hd">
+      <slot name="head"></slot>
+      <image wx:if="{{icon}}" src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </view>
+    <view class="{{'weui-cell__bd' + (linkBody ? ' weui-cell_link' : '')}}">
+      {{title}}
+      <slot name="body"></slot>
+    </view>
+    <view class="{{'weui-cell__ft' + (link ? ' weui-cell__ft_in-access' : '')}}">
+      <slot></slot>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Cell extends wepy.component {
+    props = {
+      class: {},
+      title: {},
+      icon: {},
+      link: {},
+      linkBody: {},
+      input: {},
+      right: {}
+    }
+
+    components = {}
+
+    methods = {}
+
+    onLoad() {
+    }
+  }
+</script>
+
+<style type="less">
+</style>
